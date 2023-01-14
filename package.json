@@ -1,0 +1,30 @@
+{
+  "name": "form_sub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "start": "node index.js",
+    "dev": "nodemon index.js --config config/nodemon.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D3R50N/form_sub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/D3R50N/form_sub/issues"
+  },
+  "homepage": "https://github.com/D3R50N/form_sub#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  }
+}
