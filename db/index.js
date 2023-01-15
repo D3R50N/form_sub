@@ -1,5 +1,5 @@
 const config = require("../config");
-var mysql = require("mysql");
+var mysql = require("mysql-await");
 
 
 var connection = mysql.createConnection(config.db);

@@ -9,6 +9,8 @@ const db = require("./db");
 const tables = require("./db/tables");
 const User = require("./db/models/user");
 
+const validator = require("./auth/validator");
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -18,7 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
+app.get("/signup", (req, res) => {
   res.render("signup");
 });
 
@@ -39,8 +41,15 @@ app.post("/signup", (req, res) => {
     passcode,
     req.body.phrase
   );
-    user.save();
-  res.json(user);
+  validator.validate_register(user).then((errors) => {
+    if (errors.length > 0) {
+      const map = errors.map((error) => error.message);
+      res.render("signup", { errors: map, old_values: req.body });
+    } else {
+      res.render("passcode", { passcode: passcode });
+    }
+  });
+  // user.save();
 });
 
 function escape_str(str = "") {
@@ -56,6 +65,10 @@ function escape_str(str = "") {
     .replace(/\(/g, "")
     .replace(/\)/g, "");
 }
-function str_to_uid(str='') {
-    return escape_str(str).replace(/\s/g, "-").replace(/\./g, "-");
+function str_to_uid(str = "") {
+  return (
+    escape_str(str).replace(/\s/g, "-").replace(/\./g, "-") +
+    "-" +
+    crypto.randomBytes(4).toString("hex").toLocaleLowerCase()
+  );
 }

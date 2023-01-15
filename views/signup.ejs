@@ -17,26 +17,34 @@
             <p class="text-muted">
                 Already have an account? <a href="/login">Login</a>
             </p>
+
         </div>
+        <ul class="text-danger">
+            <% if(locals.errors) { %>
+            <% for (let i = 0; i < errors.length; i++) { %>
+            <li><%= errors[i] %></li>
+            <% } %>
+            <% } %>
+        </ul>
         <div class="card-body">
             <form action="/signup" method="POST">
                 <div class="form-group">
                     <label for="name">Full name</label>
                     <span class="text-danger">*</span>
-                    <input type="text" name="name" id="name" placeholder="Enter your name" class="form-control"
-                        required>
+                    <input type="text" name="name" id="name" placeholder="Enter your name"
+                        value="<% if(locals.old_values) { %><%=old_values['name'] %><% } %>" class="form-control" required>
                 </div>
                 <div class="form-group mt-3">
                     <label for="email">Email</label>
                     <span class="text-danger">*</span>
                     <input type="email" name="email" id="email" placeholder="example@domain.com" class="form-control"
-                        required>
+                        value="<% if(locals.old_values) { %><%=old_values['email'] %><% } %>" required>
                 </div>
                 <div class="form-group mt-3">
                     <label for="email"> Passphrase </label>
                     <span class="text-muted tip" title="It will help you to recover your passcode">(optional) ?</span>
-                    <input type="text" name="phrase" id="phrase" placeholder="..earth is flat.." class="form-control"
-                        >
+                    <input type="text" value="<% if(locals.old_values) { %><%=old_values['phrase'] %> <% } %>" name="phrase" id="phrase"
+                        placeholder="..earth is flat.." class="form-control">
                 </div>
 
                 <!-- Submit button -->

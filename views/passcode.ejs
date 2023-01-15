@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/signup.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-title center">
+            <p class="text-muted mt-3">
+                Your passcode is
+            </p>
+            <h1 class="title">
+                <% if(locals.passcode) { %>
+                <%= passcode %>
+                <% } %>
+            </h1>
+        </div>
+        <div class="card-body">
+            <form action="/dashboard" method="GET">
+                <!-- Submit button -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block btn-primary ">Go to dashboard</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

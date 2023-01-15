@@ -9,6 +9,6 @@ const config = {
         database: process.env.DB_NAME || "form_submission",
         port : process.env.DB_PORT || 3306
     },
-}
+} 
 
 module.exports = config;
