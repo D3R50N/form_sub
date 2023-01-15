@@ -46,10 +46,11 @@ app.post("/signup", (req, res) => {
       const map = errors.map((error) => error.message);
       res.render("signup", { errors: map, old_values: req.body });
     } else {
+  user.save();
+
       res.render("passcode", { passcode: passcode });
     }
   });
-  // user.save();
 });
 
 function escape_str(str = "") {
