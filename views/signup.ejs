@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/signup.css">
 </head>
+
 <body>
-    
+    <div class="card">
+        <div class="card-title center">
+            <h1 class="title">Register</h1>
+            <p class="text-muted">
+                Already have an account? <a href="/login">Login</a>
+            </p>
+        </div>
+        <div class="card-body">
+            <form action="/signup" method="POST">
+                <div class="form-group">
+                    <label for="name">Full name</label>
+                    <span class="text-danger">*</span>
+                    <input type="text" name="name" id="name" placeholder="Enter your name" class="form-control"
+                        required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="email">Email</label>
+                    <span class="text-danger">*</span>
+                    <input type="email" name="email" id="email" placeholder="example@domain.com" class="form-control"
+                        required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="email"> Passphrase </label>
+                    <span class="text-muted tip" title="It will help you to recover your passcode">(optional) ?</span>
+                    <input type="text" name="phrase" id="phrase" placeholder="..earth is flat.." class="form-control"
+                        >
+                </div>
+
+                <!-- Submit button -->
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-block btn-primary ">Register</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
 </body>
+
 </html>

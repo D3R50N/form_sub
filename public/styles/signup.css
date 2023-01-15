@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'main-font';
+    src: url("/fonts/Alexandria.ttf");
+}
+
+:root {
+    --col-1: #26124A;
+    --col-2: #3B1F6F;
+    --col-3: #4F2C94;
+    --col-4: #6439B9;
+}
+
+* {
+    font-family: 'main-font';
+}
+
+body {
+    background-color: var(--col-1);
+    padding: 20px;
+}
+
+a {
+    color: var(--col-4);
+    font-weight: 600;
+    transition-duration: .15s;
+}
+
+a:hover {
+    color: #b58e19;
+    text-decoration: none;
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 700px;
+}
+
+.center {
+    text-align: center;
+}
+
+.title {
+    /* font-size: 2.5rem; */
+    color: var(--col-3);
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: var(--col-2);
+    border-color: var(--col-2);
+}
+
+.btn-primary:hover {
+    background-color: var(--col-3);
+    border-color: var(--col-3);
+}
+.tip[title] {
+    cursor: help;
+}
